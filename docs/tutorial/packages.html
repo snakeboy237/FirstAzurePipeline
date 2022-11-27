@@ -1,0 +1,271 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Packages </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Packages ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="toc.html">
+    <meta property="docfx:rel" content="../">
+    <meta property="og:title" content="Flexible and asynchronous testing framework for ASP.NET Core MVC">
+    <meta property="og:site_name" content="My Tested ASP.NET Core MVC Docs">
+    <meta property="og:url" content="http://docs.mytestedasp.net/">
+    <meta property="og:description" content="A fluent unit testing library for ASP.NET Core MVC">
+    <meta property="og:image" content="https://mytestedasp.net/Content/Images/logosocial.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:title" content="Flexible and asynchronous testing framework for ASP.NET Core MVC">
+    <meta property="twitter:description" content="A fluent unit testing library for ASP.NET Core MVC">
+    <meta property="twitter:creator" content="@MyTestedASPNET">
+    <meta property="twitter:url" content="https://mytestedasp.net/">
+    <meta property="twitter:image" content="https://mytestedasp.net/Content/Images/logosocial.jpg">
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="../index.html">
+                MY TESTED ASP.NET CORE MVC DOCS
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="packages">Packages</h1>
+
+<p>In this section we will learn the most important parts of arranging and asserting our web application components.</p>
+<h2 id="the-building-blocks-of-the-testing-framework">The building blocks of the testing framework</h2>
+<p>Of course, as a main building block of the ASP.NET Core MVC framework, we will start with controllers. Before we begin, let&#39;s make a step backwards. Remember the <strong>&quot;MusicStore.Test.csproj&quot;</strong> and the referenced <strong>&quot;MyTested.AspNetCore.Mvc&quot;</strong> dependency? Good! The My Tested ASP.NET Core MVC framework consists of many packages. Here are the most important ones:</p>
+<ul>
+<li><strong>&quot;MyTested.AspNetCore.Mvc.Core&quot;</strong> - Contains setup and assertion methods for MVC core features - controllers, models and routes</li>
+<li><strong>&quot;MyTested.AspNetCore.Mvc.DataAnnotations&quot;</strong> - Contains setup and assertion methods for data annotation validations and model state</li>
+<li><strong>&quot;MyTested.AspNetCore.Mvc.ViewFeatures&quot;</strong> - Contains setup and assertion methods for view action results, view data, view components and more</li>
+<li><strong>&quot;MyTested.AspNetCore.Mvc&quot;</strong> - Contains assertion methods for the full MVC framework </li>
+</ul>
+<p>From now on the &quot;MyTested.AspNetCore.Mvc.&quot; package name prefix will be skipped for brevity.</p>
+<p>The packages above reflect the features in the ASP.NET Core packages - &quot;Microsoft.AspNetCore.Mvc.Core&quot;, &quot;Microsoft.AspNetCore.Mvc.DataAnnotations&quot;, &quot;Microsoft.AspNetCore.Mvc.ViewFeatures&quot; and &quot;Microsoft.AspNetCore.Mvc&quot;.</p>
+<p>These so called &quot;main&quot; packages can be separated further to <strong>&quot;Controllers&quot;</strong>, <strong>&quot;Routing&quot;</strong>, <strong>&quot;ViewComponents&quot;</strong> and more. Helper packages for testing non-MVC related features like <strong>&quot;EntityFrameworkCore&quot;</strong> and <strong>&quot;Authentication&quot;</strong> are also available.</p>
+<p>Additionally, these two packages are also available:</p>
+<ul>
+<li><strong>&quot;MyTested.AspNetCore.Mvc.Universe&quot;</strong> - Combines all available binaries and the whole fluent API into one single package. Use it, if you do not want to include specific smaller packages and want to have every feature available.</li>
+<li><strong>&quot;MyTested.AspNetCore.Mvc.Lite&quot;</strong> - Completely <strong>FREE</strong> and <strong>UNLIMITED</strong> version of the library. It should not be used in combination with any other package. Includes <strong>&quot;Controllers&quot;</strong>, <strong>&quot;Controllers.Views&quot;</strong> and <strong>&quot;ViewComponents&quot;</strong>.</li>
+</ul>
+<p>The full list and descriptions of all available packages can be found <a href="/guide/packages.html">HERE</a>. All of them except the <strong>&quot;Lite&quot;</strong> one require a license code in order to be used without limitations. If a license code is not provided, a maximum of 100 assertions per test project is allowed. More information about the licensing can be found <a href="/guide/licensing.html">HERE</a>.</p>
+<p><strong>MyTested.AspNetCore.Mvc versions before 3.0.0 do not have such restrictions and work without any limitations even if a license code is not provided.</strong></p>
+<h2 id="breaking-down-the-mvc-package">Breaking down the MVC package</h2>
+<p>Now, let&#39;s get back to the testing. Go to the <strong>&quot;MusicStore.Test.csproj&quot;</strong> file and replace the <strong>&quot;MyTested.AspNetCore.Mvc&quot;</strong> dependency with <strong>&quot;MyTested.AspNetCore.Mvc.Controllers&quot;</strong>. We will start using the small and specific packages for now, and then we will switch to the <strong>&quot;Universe&quot;</strong> one later in the tutorial.</p>
+<p>Your <strong>&quot;MusicStore.Test.csproj&quot;</strong> dependencies should look like this:</p>
+<pre><code class="lang-xml">&lt;!-- Other ItemGroups --&gt;
+
+  &lt;ItemGroup&gt;
+    &lt;PackageReference Include=&quot;Microsoft.AspNetCore.App&quot; /&gt;
+    &lt;PackageReference Include=&quot;Microsoft.NET.Test.Sdk&quot; Version=&quot;16.0.1&quot; /&gt;
+    &lt;!-- MyTested.AspNetCore.Mvc.Controllers package --&gt;
+    &lt;PackageReference Include=&quot;MyTested.AspNetCore.Mvc.Controllers&quot; Version=&quot;2.2.0&quot; /&gt;
+    &lt;PackageReference Include=&quot;xunit&quot; Version=&quot;2.4.0&quot; /&gt;
+    &lt;PackageReference Include=&quot;xunit.runner.visualstudio&quot; Version=&quot;2.4.0&quot; /&gt;
+  &lt;/ItemGroup&gt;
+
+&lt;!-- Other ItemGroups --&gt;
+</code></pre><p>If you try to build the solution, you will receive an error stating that <strong>&quot;MyMvc&quot;</strong> does not exist.</p>
+<p><img src="/images/tutorial/mymvcdoesnotexist.jpg" alt="MyMvc no longer exists"></p>
+<p>The <strong>&quot;MyMvc&quot;</strong> class is only available in the <strong>&quot;MyTested.AspNetCore.Mvc&quot;</strong> package and combines all the different test types into a single starting point. To fix our test, we have to use <strong>&quot;MyController&quot;</strong>:</p>
+<pre><code class="lang-c#">[Fact]
+public void AddressAndPaymentShouldReturnDefaultView()
+    =&gt; MyController&lt;CheckoutController&gt;
+        .Instance()
+        .Calling(c =&gt; c.AddressAndPayment())
+        .ShouldReturn()
+        .View();
+</code></pre><p>Unfortunately, it still does not compile, because you will receive error like this:</p>
+<pre><code class="lang-text">&#39;IShouldReturnTestBuilder&lt;IActionResult&gt;&#39; does not contain a definition for &#39;View&#39; and no accessible extension method &#39;View&#39; accepting a first argument of type &#39;IShouldReturnTestBuilder&lt;IActionResult&gt;&#39; could be found (are you missing a using directive or an assembly reference?
+</code></pre><p>The <strong>&quot;Controllers&quot;</strong> package contains assertions methods only for the <a href="https://github.com/aspnet/AspNetCore/blob/master/src/Mvc/Mvc.Core/src/ControllerBase.cs">ControllerBase</a> class which does not include view features and action results.</p>
+<p>You can see this by examining the IntelliSense of the test:</p>
+<p><img src="/images/tutorial/coreintellisense.jpg" alt="Controllers package IntelliSense"></p>
+<h2 id="asserting-core-controllers">Asserting core controllers</h2>
+<p>We will try the core action results before returning to the view features. Comment the first test for now (so that the project will compile with the currently added dependencies) and add a new class named <strong>&quot;ManageControllerTest&quot;</strong> in the <strong>&quot;Controllers&quot;</strong> folder. We will test the asynchronous <strong>&quot;RemoveLogin&quot;</strong> action in the <strong>&quot;ManageController&quot;</strong>. If you examine it, you will notice that it returns <strong>&quot;RedirectToAction&quot;</strong>, if no user is authenticated:</p>
+<pre><code class="lang-c#">public async Task&lt;IActionResult&gt; RemoveLogin(string loginProvider, string providerKey)
+{
+    ManageMessageId? message = ManageMessageId.Error;
+    var user = await GetCurrentUserAsync();
+    if (user != null)
+    {
+        // action code skipped for brevity
+    }
+    return RedirectToAction(&quot;ManageLogins&quot;, new { Message = message });
+}
+</code></pre><p>Add the necessary usings and write the following test into the <strong>&quot;ManageControllerTest&quot;</strong> class:</p>
+<pre><code class="lang-c#">[Fact]
+public void RemoveLoginShouldReturnRedirectToActionWithNoUser()
+    =&gt; MyController&lt;ManageController&gt;
+        .Instance()
+        .Calling(c =&gt; c.RemoveLogin(null, null))
+        .ShouldReturn()
+        .Redirect();
+</code></pre><p>Run the test, and it should pass correctly. As you can see, My Tested ASP.NET Core MVC tests asynchronous actions flawlessly. If you do not like the null value literals, you may use the built-in helper class <strong>&quot;With&quot;</strong> to specify that there are no action arguments in this test:</p>
+<pre><code class="lang-c#">.Calling(c =&gt; c.RemoveLogin(With.No&lt;string&gt;(), With.No&lt;string&gt;()))
+</code></pre><p>As a bonus, let&#39;s assert some details of the redirect action result. We can see it redirects to the <strong>&quot;ManageLogins&quot;</strong> action with a <strong>&quot;ManageMessageId&quot;</strong> route value so we better test them, but first we need to install another package -  <strong>&quot;MyTested.AspNetCore.Mvc.Controllers.ActionResults&quot;</strong>:</p>
+<pre><code class="lang-xml">&lt;!-- Other ItemGroups --&gt;
+
+  &lt;ItemGroup&gt;
+    &lt;PackageReference Include=&quot;Microsoft.AspNetCore.App&quot; /&gt;
+    &lt;PackageReference Include=&quot;Microsoft.NET.Test.Sdk&quot; Version=&quot;16.0.1&quot; /&gt;
+    &lt;PackageReference Include=&quot;MyTested.AspNetCore.Mvc.Controllers&quot; Version=&quot;2.2.0&quot; /&gt;
+    &lt;!-- MyTested.AspNetCore.Mvc.Controllers.ActionResults package --&gt;
+    &lt;PackageReference Include=&quot;MyTested.AspNetCore.Mvc.Controllers.ActionResults&quot; Version=&quot;2.2.0&quot; /&gt;
+    &lt;PackageReference Include=&quot;xunit&quot; Version=&quot;2.4.0&quot; /&gt;
+    &lt;PackageReference Include=&quot;xunit.runner.visualstudio&quot; Version=&quot;2.4.0&quot; /&gt;
+  &lt;/ItemGroup&gt;
+
+&lt;!-- Other ItemGroups --&gt;
+</code></pre><p>And the test:</p>
+<pre><code class="lang-c#">[Fact]
+public void RemoveLoginShouldReturnRedirectToActionWithNoUser()
+    =&gt; MyController&lt;ManageController&gt;
+        .Instance()
+        .Calling(c =&gt; c.RemoveLogin(
+            With.No&lt;string&gt;(), 
+            With.No&lt;string&gt;()))
+        .ShouldReturn()
+        .Redirect(result =&gt; result
+            .ToAction(nameof(ManageController.ManageLogins))
+            .ContainingRouteValues(new { Message = ManageController.ManageMessageId.Error }));
+</code></pre><p>Now we can sleep peacefully! :)</p>
+<p>If we do not include the <strong>&quot;MyTested.AspNetCore.Mvc.Controllers.ActionResults&quot;</strong> package, we can still test the action result details, but we have to do it manually like so:</p>
+<pre><code class="lang-c#">[Fact]
+public void RemoveLoginShouldReturnRedirectToActionWithNoUser()
+    =&gt; MyController&lt;ManageController&gt;
+        .Instance()
+        .Calling(c =&gt; c.RemoveLogin(
+            With.No&lt;string&gt;(), 
+            With.No&lt;string&gt;()))
+        .ShouldReturn()
+        .Redirect(result =&gt; result
+            .Passing(redirect =&gt;
+            {
+                Assert.Equal(nameof(ManageController.ManageLogins), redirect.ActionName);
+
+                var routeValues = redirect.RouteValues;
+
+                var routeValueKey = &quot;Message&quot;;
+
+                Assert.Contains(routeValueKey, routeValues.Keys);
+                Assert.Equal(ManageController.ManageMessageId.Error, routeValues[routeValueKey]);
+            }));
+</code></pre><p>Hopefully, you will prefer the My Tested ASP.NET Core MVC way. :)</p>
+<h2 id="adding-view-action-results">Adding view action results</h2>
+<p>OK, back to that commented test. We cannot test views with our current dependencies. Go to the <strong>&quot;MusicStore.Test.csproj&quot;</strong> and add <strong>&quot;MyTested.AspNetCore.Mvc.Controllers.Views&quot;</strong> package as a dependency:</p>
+<pre><code class="lang-xml">&lt;!-- Other ItemGroups --&gt;
+
+  &lt;ItemGroup&gt;
+    &lt;PackageReference Include=&quot;Microsoft.AspNetCore.App&quot; /&gt;
+    &lt;PackageReference Include=&quot;Microsoft.NET.Test.Sdk&quot; Version=&quot;16.0.1&quot; /&gt;
+    &lt;PackageReference Include=&quot;MyTested.AspNetCore.Mvc.Controllers&quot; Version=&quot;2.2.0&quot; /&gt;
+    &lt;PackageReference Include=&quot;MyTested.AspNetCore.Mvc.Controllers.ActionResults&quot; Version=&quot;2.2.0&quot; /&gt;
+    &lt;!-- MyTested.AspNetCore.Mvc.Controllers.Views package --&gt;
+    &lt;PackageReference Include=&quot;MyTested.AspNetCore.Mvc.Controllers.Views&quot; Version=&quot;2.2.0&quot; /&gt;
+    &lt;PackageReference Include=&quot;xunit&quot; Version=&quot;2.4.0&quot; /&gt;
+    &lt;PackageReference Include=&quot;xunit.runner.visualstudio&quot; Version=&quot;2.4.0&quot; /&gt;
+  &lt;/ItemGroup&gt;
+
+&lt;!-- Other ItemGroups --&gt;
+</code></pre><p>Go back to the <strong>&quot;CheckoutControllerTest&quot;</strong> class and uncomment the view test. It should compile and pass successfully now.</p>
+<h2 id="section-summary">Section summary</h2>
+<p>In this section we learned how we can use only these parts from My Tested ASP.NET Core MVC that we actually need in our testing project. Each small package dependency adds additional extension methods to the fluent API. We will add more and more packages in the next sections so that you can get familiar with them. Next - <a href="/tutorial/debugging.html">Debugging Failed Tests</a>!</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/tmollov/MyTested.AspNetCore.Mvc/blob/development/docs/_docfx/tutorial/packages.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            <span>Copyright © 2015-2016 <strong><a href="http://mytestedasp.net">MyTestedASP.NET</a></strong>. All Rights Reserved. Generated by <strong><a href="http://dotnet.github.io/docfx/">DocFX</a></strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-51720358-4', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '884740311601716');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=884740311601716&ev=PageView&noscript=1"></noscript>  </body>
+</html>

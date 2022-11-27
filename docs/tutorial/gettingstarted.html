@@ -1,0 +1,308 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Getting Started </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Getting Started ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="toc.html">
+    <meta property="docfx:rel" content="../">
+    <meta property="og:title" content="Flexible and asynchronous testing framework for ASP.NET Core MVC">
+    <meta property="og:site_name" content="My Tested ASP.NET Core MVC Docs">
+    <meta property="og:url" content="http://docs.mytestedasp.net/">
+    <meta property="og:description" content="A fluent unit testing library for ASP.NET Core MVC">
+    <meta property="og:image" content="https://mytestedasp.net/Content/Images/logosocial.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:title" content="Flexible and asynchronous testing framework for ASP.NET Core MVC">
+    <meta property="twitter:description" content="A fluent unit testing library for ASP.NET Core MVC">
+    <meta property="twitter:creator" content="@MyTestedASPNET">
+    <meta property="twitter:url" content="https://mytestedasp.net/">
+    <meta property="twitter:image" content="https://mytestedasp.net/Content/Images/logosocial.jpg">
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="../index.html">
+                MY TESTED ASP.NET CORE MVC DOCS
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="getting-started">Getting Started</h1>
+
+<p>In this section we will learn how to configure My Tested ASP.NET Core MVC and get familiar with all the small issues we may encounter in the process.</p>
+<h2 id="prepare-test-assembly">Prepare test assembly</h2>
+<p>First things first - we need a test assembly! Open the <a href="https://github.com/ivaylokenov/MyTested.AspNetCore.Mvc/raw/development/docs/files/MusicStore-Tutorial.zip">Music Store solution</a> and create a new xUnit test project for .NET Core in it. A good name is <strong>&quot;MusicStore.Test&quot;</strong>.</p>
+<p><img src="/images/tutorial/createtestproject.jpg" alt="Create .NET Core test project"></p>
+<p>Delete the auto-generated <strong>&quot;UnitTest1.cs&quot;</strong> file and install <a href="https://www.nuget.org/packages/MyTested.AspNetCore.Mvc/">MyTested.AspNetCore.Mvc</a> from NuGet.</p>
+<p>After that you must add a reference to the <strong>&quot;MusicStore&quot;</strong> project.</p>
+<p>Now your <strong>&quot;MusicStore.Test.csproj&quot;</strong> file should look like this*:</p>
+<pre><code class="lang-xml">&lt;Project Sdk=&quot;Microsoft.NET.Sdk&quot;&gt;
+
+  &lt;PropertyGroup&gt;
+    &lt;TargetFramework&gt;netcoreapp2.2&lt;/TargetFramework&gt;
+
+    &lt;IsPackable&gt;false&lt;/IsPackable&gt;
+  &lt;/PropertyGroup&gt;
+
+  &lt;ItemGroup&gt;
+    &lt;PackageReference Include=&quot;Microsoft.NET.Test.Sdk&quot; Version=&quot;16.0.1&quot; /&gt;
+    &lt;PackageReference Include=&quot;MyTested.AspNetCore.Mvc&quot; Version=&quot;2.2.0&quot; /&gt;
+    &lt;PackageReference Include=&quot;xunit&quot; Version=&quot;2.4.0&quot; /&gt;
+    &lt;PackageReference Include=&quot;xunit.runner.visualstudio&quot; Version=&quot;2.4.0&quot; /&gt;
+  &lt;/ItemGroup&gt;
+
+  &lt;ItemGroup&gt;
+    &lt;ProjectReference Include=&quot;..\MusicStore\MusicStore.csproj&quot; /&gt;
+  &lt;/ItemGroup&gt;
+
+&lt;/Project&gt;
+</code></pre><p><em>You may need to change/update the versions of the listed packages with more recent ones.</em></p>
+<h2 id="our-first-test">Our first test</h2>
+<p>Now let&#39;s write our first unit test. We will validate the <strong>&quot;AddressAndPayment&quot;</strong> action in the <strong>&quot;CheckoutController&quot;</strong>. It is one of the simplest actions possible - returns a default view no matter the HTTP request.</p>
+<pre><code class="lang-c#">// controller code skipped for brevity
+
+public IActionResult AddressAndPayment()
+{
+    return View();
+}
+
+// controller code skipped for brevity
+</code></pre><p>Add a <strong>&quot;Controllers&quot;</strong> folder in the test assembly and create a <strong>&quot;CheckoutControllerTest&quot;</strong> class in it. Add these usings:</p>
+<pre><code class="lang-c#">using MusicStore.Controllers;
+using MyTested.AspNetCore.Mvc;
+using Xunit;
+</code></pre><p>The only thing we need to assert in the tested action is whether it returns a view, so let&#39;s write it:</p>
+<pre><code class="lang-c#">[Fact]
+public void AddressAndPaymentShouldReturnDefaultView()
+    =&gt; MyMvc
+        .Controller&lt;CheckoutController&gt;()
+        .Calling(c =&gt; c.AddressAndPayment())
+        .ShouldReturn()
+        .View();
+</code></pre><p>Note the static <strong>&quot;MyMvc&quot;</strong> class. It is the starting point of the fluent interface, but that depends on the installed packages in the test assembly. More details will be provided later in the tutorial.</p>
+<p>Since My Tested ASP.NET Core MVC provides a fluent API, tests can be written within a single statement. Therefore we can use expression-bodied functions (available from C# 6.0). Of course, if you prefer, you can always use the regular curly brackets, nobody is going to stop you from doing it (for now)! :)</p>
+<h2 id="teststartup-class">&quot;TestStartup&quot; class</h2>
+<p>Let&#39;s build the solution and run the test.</p>
+<p>Wait for it...</p>
+<p><img src="/images/tutorial/nostartuperror.jpg" alt="First unit test fails because of missing configuration"></p>
+<p>Surprise! The simplest test fails. This testing framework is a waste of time! :(</p>
+<p>Joke! Don&#39;t leave yet! By default, My Tested ASP.NET Core MVC will load the <strong>&quot;Startup&quot;</strong> class from your web application. If you take a look inside, you will see it requires a &quot;config.json&quot; file. You may copy this file to your test project to make the test pass right now but we will create a more clever solution.</p>
+<p>If you create a <strong>&quot;TestStartup&quot;</strong> class at the root of the test assembly, My Tested ASP.NET Core MVC will use it, instead of using the one from the web application.</p>
+<p>Let&#39;s add one. Write the following code in it:</p>
+<pre><code class="lang-c#">namespace MusicStore.Test
+{
+    using Microsoft.AspNetCore.Hosting;
+
+    public class TestStartup : Startup
+    {
+        public TestStartup(IHostingEnvironment hostingEnvironment)
+            : base(hostingEnvironment)
+        {
+        }
+    }
+}
+</code></pre><p>Our <strong>&quot;TestStartup&quot;</strong> inherits the base <strong>&quot;Startup&quot;</strong> class to reuse its logic.</p>
+<p>Now, take a look at the <strong>&quot;CheckoutController&quot;</strong>. You may have noticed its constructor is not an empty one. My Tested ASP.NET Core MVC uses the registered services from the <strong>&quot;TestStartup&quot;</strong> class to resolve all dependencies and instantiate the controller. We will get into more details about the global test service provider later in this tutorial.</p>
+<h2 id="web-configuration">Web configuration</h2>
+<p>Now run the test again.</p>
+<p>Wait for it...</p>
+<p>And...</p>
+<p>FAIL AGAIN!</p>
+<pre><code class="lang-text">System.IO.FileNotFoundException :
+ The configuration file &#39;config.json&#39; was not found and is not optional.
+</code></pre><p>You were expecting that, right? You should not be surprised after the first fail at all... </p>
+<p>The struggle with this testing framework is real... :(</p>
+<p>Still here? Good! Now repeat after me and then everything will be explained to you (it&#39;s a promise)!</p>
+<p>Go to the <strong>&quot;MusicStore&quot;</strong> project root, copy the <strong>&quot;config.json&quot;</strong> file and paste it at the root of the test project.</p>
+<p>Afterwards, you must switch the <strong>&quot;Copy To Output Directory&quot;</strong> property of the <strong>&quot;config.json&quot;</strong> file to <strong>&quot;Copy if newer&quot;</strong> or manualy put these lines in the <strong>&quot;MusicStore.Test.csproj&quot;</strong> project:</p>
+<pre><code class="lang-xml">  &lt;!--Other ItemGroups --&gt;
+
+  &lt;ItemGroup&gt;
+    &lt;Content Update=&quot;config.json&quot;&gt;
+      &lt;CopyToOutputDirectory&gt;PreserveNewest&lt;/CopyToOutputDirectory&gt;
+    &lt;/Content&gt;
+  &lt;/ItemGroup&gt;
+
+  &lt;!--Other ItemGroups --&gt;
+</code></pre><p><img src="/images/tutorial/configjson.jpg" alt="Copied config.json from the web project"></p>
+<p>You may be a bit worried about the connection string in the <strong>&quot;config.json&quot;</strong> file. I would be if I didn&#39;t know it was not needed at all. You may change its value to whatever you like so let&#39;s make it &quot;Test Connection&quot;. If you want to feel even safer, you may change all the other options too. It&#39;s up to you.</p>
+<p>Your <strong>&quot;config.json&quot;</strong> file should look like this:</p>
+<pre><code class="lang-json">{
+  &quot;AppSettings&quot;: {
+    &quot;SiteTitle&quot;: &quot;ASP.NET MVC Music Store&quot;,
+    &quot;CacheDbResults&quot;: true
+  },
+  &quot;DefaultAdminUsername&quot;: &quot;Administrator@test.com&quot;,
+  &quot;DefaultAdminPassword&quot;: &quot;YouShouldChangeThisPassword1!&quot;,
+  &quot;Data&quot;: {
+    &quot;DefaultConnection&quot;: {
+      &quot;ConnectionString&quot;: &quot;Test Connection&quot;
+    }
+  }
+}
+</code></pre><p>Now run the test again in Visual Studio and... Lol, snap, it fails again... What is wrong with this testing framework?! :(</p>
+<p>Well, this time it is <a href="https://docs.microsoft.com/en-us/aspnet/core/test/integration-tests?view=aspnetcore-2.2#test-app-prerequisites">Microsoft&#39;s fault</a> (hehe). We need to specify the Web SDK in our test project and reference the <strong>&quot;Microsoft.AspNetCore.App&quot;</strong> metapackage, if we want to test ASP.NET Core 2.2 applications on .NET Core.</p>
+<p>Open the <strong>&quot;MusicStore.Test.csproj&quot;</strong> file and update it:</p>
+<pre><code class="lang-xml">&lt;Project Sdk=&quot;Microsoft.NET.Sdk.Web&quot;&gt; &lt;!-- Changed project SDK to Microsoft.NET.Sdk.Web --&gt;
+
+  &lt;PropertyGroup&gt;
+    &lt;TargetFramework&gt;netcoreapp2.2&lt;/TargetFramework&gt;
+
+    &lt;IsPackable&gt;false&lt;/IsPackable&gt;
+  &lt;/PropertyGroup&gt;
+
+  &lt;ItemGroup&gt;
+    &lt;PackageReference Include=&quot;Microsoft.AspNetCore.App&quot; /&gt; &lt;!-- Reference to the metapackage --&gt;
+    &lt;PackageReference Include=&quot;Microsoft.NET.Test.Sdk&quot; Version=&quot;16.0.1&quot; /&gt;
+    &lt;PackageReference Include=&quot;MyTested.AspNetCore.Mvc&quot; Version=&quot;2.2.0&quot; /&gt;
+    &lt;PackageReference Include=&quot;xunit&quot; Version=&quot;2.4.0&quot; /&gt;
+    &lt;PackageReference Include=&quot;xunit.runner.visualstudio&quot; Version=&quot;2.4.0&quot; /&gt;
+  &lt;/ItemGroup&gt;
+
+  &lt;ItemGroup&gt;
+    &lt;ProjectReference Include=&quot;..\MusicStore\MusicStore.csproj&quot; /&gt;
+  &lt;/ItemGroup&gt;
+
+  &lt;ItemGroup&gt;
+    &lt;Content Update=&quot;config.json&quot;&gt;
+      &lt;CopyToOutputDirectory&gt;PreserveNewest&lt;/CopyToOutputDirectory&gt;
+    &lt;/Content&gt;
+  &lt;/ItemGroup&gt;
+
+&lt;/Project&gt;
+</code></pre><p><em>.NET Core 3.0 test projects do not need this change and work correctly without the Web SDK.</em></p>
+<p>Run the test again and... Oh, miracles! The test passes correctly without any big and ugly errors! Oh, yeah, do you feel the happiness? This library is DA BOMB!!! :)</p>
+<h2 id="running-tests-from-the-cli">Running tests from the CLI</h2>
+<p>You may want to run your tests from the command-line interface. Go to the <strong>&quot;MusicStore.Test&quot;</strong> project folder and open a console terminal there. The easiest way is pressing &quot;SHIFT + Right Mouse Button&quot; somewhere in the window and then clicking &quot;Open command window here&quot; or &quot;Open PowerShell window here&quot;.</p>
+<p>Then type &quot;dotnet test&quot; and hit &quot;Enter&quot;.</p>
+<p><img src="/images/tutorial/firsttestpass.jpg" alt="Running tests from the CLI"></p>
+<h2 id="understanding-the-details">Understanding the details</h2>
+<p>OK, back to that promise - the detailed explanation for all the different fails.</p>
+<p><strong>Basically two things happened.</strong></p>
+<p><strong>First</strong>, My Tested ASP.NET Core MVC needs to resolve the services required by the different components in your web application - controllers, view components, etc. By default, the testing framework is configured to use a <strong>&quot;TestStartup&quot;</strong> class at the root of the test project (otherwise it tries to load the one from the web application). From there it prepares the global service provider and use it across the tests. Remember:</p>
+<ul>
+<li>Each test project requires separate <strong>&quot;Startup&quot;</strong> class and bootstraps a separate test application and service provider. You may run different configurations in different test assemblies. </li>
+<li>Each test runs in a scoped service lifetime - during a test all scoped services will be resolved by using the same instances and for the next test, other instances will be provided. My Tested ASP.NET Core MVC uses this nice little feature to run smooth and autonomous tests for storage providers like the <strong>&quot;DbContext&quot;</strong>, <strong>&quot;IMemoryCache&quot;</strong>, <strong>&quot;ViewDataDictionary&quot;</strong> and many others but more on that later in the tutorial.</li>
+</ul>
+<p>Besides the default <strong>&quot;TestStartup&quot;</strong> configuration there are two other options the developer may use - manual fluent configuration and per test setup without any globally registered services. More information can be found <a href="/guide/startuptypes.html">HERE</a>.</p>
+<p><strong>Second</strong>, the test failed because we did not have the required <strong>&quot;config.json&quot;</strong> file. If you take a look at the <strong>&quot;Startup&quot;</strong> file in the web project, you may see that the constructor of the class has the following lines of code:</p>
+<pre><code class="lang-c#">var builder = new ConfigurationBuilder()
+    .SetBasePath(hostingEnvironment.ContentRootPath)
+    .AddJsonFile(&quot;config.json&quot;)
+</code></pre><p>The JSON file is not optional, and since we inherit from the original web <strong>&quot;Startup&quot;</strong>, our <strong>&quot;TestStartup&quot;</strong> class runs the same code thus requiring the <strong>&quot;config.json&quot;</strong> file to be present. (Un)fortunately, the base project directory will be the output directory of the test project, and the test runner will search for the file there. We may make the <strong>&quot;config.json&quot;</strong> optional, but it may lead to unexpected behavior and exceptions in our web application, so our best option here is to copy the same file into the test project and change all important values with dummy ones. Copy-pasting is not a good practice, but letting the tests touch and read the original application configuration values like database connection strings, security passwords, and potentially others is even worse. Additionally, only copying the file is not enough for it to end up in the output directory, so we need to add it explicitly in the test assembly&#39;s <strong>&quot;MusicStore.Test.csproj&quot;</strong> configuration.</p>
+<h2 id="error-messages">Error messages</h2>
+<p>To finish this section let&#39;s make the test fail because of an invalid assertion just to see what happens. Instead of testing for <strong>&quot;View&quot;</strong>, make it assert for any other action result. <strong>&quot;BadRequest&quot;</strong>, for example:</p>
+<pre><code class="lang-c#">[Fact]
+public void AddressAndPaymentShouldReturnDefaultView()
+    =&gt; MyController&lt;CheckoutController&gt;
+        .Instance()
+        .Calling(c =&gt; c.AddressAndPayment())
+        .ShouldReturn()
+        .BadRequest();
+</code></pre><p>Run the test, and you will see a nice descriptive error message from My Tested ASP.NET Core MVC:</p>
+<pre><code class="lang-text">MyTested.AspNetCore.Mvc.Exceptions.InvocationResultAssertionException :
+ When calling AddressAndPayment action in CheckoutController expected result to be BadRequestResult, but instead received ViewResult.
+</code></pre><p>Of course, you should undo the change and return the <strong>&quot;View&quot;</strong> call (unless you want a failing test during the whole tutorial but that&#39;s up to you again). :)</p>
+<h2 id="section-summary">Section summary</h2>
+<p>Well, all is well that ends well! While the <strong>&quot;Getting Started&quot;</strong> section of this tutorial may feel a bit &quot;KABOOM&quot;-ish, it covers all the common failures and problems you may encounter while starting to use My Tested ASP.NET Core MVC. From now on it is all unicorns and rainbows. Go to the <a href="/tutorial/packages.html">Packages</a> section and see for yourself! :)</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/tmollov/MyTested.AspNetCore.Mvc/blob/development/docs/_docfx/tutorial/gettingstarted.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            <span>Copyright © 2015-2016 <strong><a href="http://mytestedasp.net">MyTestedASP.NET</a></strong>. All Rights Reserved. Generated by <strong><a href="http://dotnet.github.io/docfx/">DocFX</a></strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-51720358-4', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '884740311601716');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=884740311601716&ev=PageView&noscript=1"></noscript>  </body>
+</html>
