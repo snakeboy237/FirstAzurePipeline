@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\MyTested.AspNetCore.Mvc.Controllers.Views\MyTested.AspNetCore.Mvc.Controllers.Views.csproj" />
+    <ProjectReference Include="..\..\..\src\MyTested.AspNetCore.Mvc.Controllers\MyTested.AspNetCore.Mvc.Controllers.csproj" />
+    <ProjectReference Include="..\..\..\src\MyTested.AspNetCore.Mvc.Helpers\MyTested.AspNetCore.Mvc.Helpers.csproj" />
+    <ProjectReference Include="..\..\..\src\MyTested.AspNetCore.Mvc.Routing\MyTested.AspNetCore.Mvc.Routing.csproj" />
+    <ProjectReference Include="..\ApplicationParts.Web\ApplicationParts.Web.csproj" />
+    <ProjectReference Include="..\ApplicationParts.Controllers\ApplicationParts.Controllers.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.4.0" />
+    <PackageReference Include="NUnit" Version="3.12.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.16.0" />
+  </ItemGroup>
+
+</Project>
